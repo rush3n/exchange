@@ -2,5 +2,5 @@ function PL-NewUsers
 {
 [cmdletbinding()]
 Param($a)
-get-aduser -Filter "Name -like 'p0*'" -Properties * | Where-Object {$_.WhenCreated -gt [datetime]::parse("$a")} | ft Name -autosize
+get-aduser -Filter "Name -like 'p0*'" -Properties * | Where-Object {$_.WhenCreated -gt [datetime]::parse("$a")} | Select-Object Name
 }
